@@ -6,30 +6,30 @@ CREATE TABLE livros (
     isbn varchar (100) unique not null ,
     genero VARCHAR(50),
     nome VARCHAR(50),
-    status_leitura VARCHAR(50),
     PRIMARY KEY (cod)
 );
 
 CREATE TABLE usuario(
     cod INT,
     nome VARCHAR(50),
-    email VARCHAR(50),
+    email VARCHAR(50) unique not null,
     data_nasc date,
     PRIMARY KEY (cod)
 );
 
 CREATE TABLE escritor (
     cod INT,
+    nome VARCHAR(50),
+    email VARCHAR(50) unique not null,
+    data_nasc date,
     bioPes VARCHAR(1000),
     livrosAut VARCHAR(100),
-    fk_usuario_cod int,
-    foreign key(fk_usuario_cod )
-    references usuario (cod),
     PRIMARY KEY (cod)
 );
 
 CREATE TABLE postagem (
     cod INT,
+	status_leitura VARCHAR(50),
     fk_usuario_cod INT,
     data_postagem DATE,
     opiniao VARCHAR(100),
@@ -78,6 +78,7 @@ CREATE TABLE comentario (
 
 CREATE TABLE vendas (
     valor INT,
+    quantidade INT,
     fk_usuarioVend_cod INT,
     fk_usuarioComp_cod INT,
     fk_livros_cod INT,

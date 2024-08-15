@@ -2,10 +2,10 @@
 select * from livros where genero="romance";
 
 # Selecionem o valor do livro mais caro e o mais barato
-SELECT * FROM vendas order by valor desc;
+SELECT MAX(valor)AS maior, min(valor)AS menor FROM vendas;
 
-# Quais são os livros autorais do escritor Melrick Davison?
-SELECT livrosAut FROM escritor where nome="Melrick Davison";
+# Quais são os livros autorais da escritora Elena Maria ?
+SELECT livrosAut FROM escritor where nome="Elena Maria";
 
 # Quantos livros o usuário com código 844 comprou?
 SELECT COUNT(quantidade) FROM vendas WHERE FK_usuarioComp_cod = 844;
@@ -20,10 +20,11 @@ SELECT opiniao FROM postagem where fk_usuario_cod = 431;
 SELECT avg (valor) from vendas; 
 
 # Selecione os livros que começem com a letra "a"
-SELECT * FROM livros where nome like "a%";
+SELECT * FROM livros where nome like "A%";
 
 # Quantos usuários estão cadastrados no aplicativo? 
 SELECT COUNT(cod) FROM usuario;
 
 # Quantos livros possuem no aplicativo?
 SELECT COUNT(cod) FROM livros;
+
