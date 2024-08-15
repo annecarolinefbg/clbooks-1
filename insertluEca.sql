@@ -22,19 +22,19 @@ insert into usuario (cod, nome, email, data_nasc) values
 
 insert into escritor (cod, nome, email, data_nasc, bioPes, livrosAut) values
 (642,"Lara Almeida","laraalmeida@gmail.com","2000-05-10", "Sou escritora iniciante.", "O mar das lembranças"),
-(785,"Elena Maria","ElenaMaria123@gmal.com","2001-09-06", "Me chamo Elena Maria e escrevo livros voltados para o cristianismo, com relações do nosso cotidiano.", "O Sol da Manhã, Acordar com Jesus"),
+(785,"Elena Maria","ElenaMaria23@gmail.com","2001-09-06", "Me chamo Elena Maria e escrevo livros voltados para o cristianismo, com relações do nosso cotidiano.", "O Sol da Manhã, Acordar com Jesus"),
 (142,"Ricardo Ribeiro","RicardoEscritor1@gmail.com","1996-04-06", "Sou escritor, mas tenho pouco reconhecimento nesse ramo, quero expandir minha audiência usando esse aplicativo.", "Os tons de vermelho"),
-(845,"Waldylene Gomes","Waldylenegomezzs@gmal.com","2001-09-06", "Já sou escritora faz um tempo, mas comecei a publicar livros recentemente, com temas de autoajuda.", "A Mente dos Disparos, Lua de Inverno"),
-(562,"Monica Torres","ElenaMaria123@gmal.com","1999-04-12", "", "Todas as suas perfeições, Primeiro eu tive que saber viver"),
-(844,"Elinelson Souza","ElinelsonSouza@gmal.com","2001-09-06", "", "A menina que sabia errar");
+(845,"Waldylene Gomes","Waldylenegomezzs@gmail.com","2001-08-06", "Já sou escritora faz um tempo, mas comecei a publicar livros recentemente, com temas de autoajuda.", "A Mente dos Disparos, Lua de Inverno"),
+(562,"Monica Torres","MonicaTorress@gmail.com","1999-04-12", "Sou escritora a bastante tempo e nunca publiquei meus livros, estou usando o aplicativo para essa nova oportunidade", "Todas as suas perfeições, Primeiro eu tive que saber viver"),
+(844,"Elinelson Souza","ElinelsonSouza@gmail.com","2001-06-09", "Escrevo livros de matemática", "Matemática elemenelson vol1");
 
 insert INTO postagem (cod, status_leitura,fk_usuario_cod, data_postagem, opiniao, titulos) values
 (54876,"Abandonei",741,"2024-08-02", "achei pessimo", "Quem é você Alaska"),
 (45628,"Lendo", 556,"2024-07-19", "Comecei agora e já me emocionei demais!", "A culpa é das estrelas"),
 (75896,"Abandonei",431, "2024-06-25", "não tive vontade de continuar a leitura", "Barretos"),
 (12596,"Já li",112, "2024-08-30", "Me prendeu do começo ao fim, mas são muitos livros e ainda não terminei a saga inteira.", "Harry Potter"),
-(89666,"Quero ler",844,"2024-07-05", "é Foda viu, eu leria de novo", "Biblioteca da meia noite"),
-(89686,"Já li",844, "2024-05-10","Foi o meu primeiro livro, o final poderia ter sido um pouquinho melhor, q bosta", "A Seleção"),
+(89666,"Quero ler",844,"2024-08-05", "é Foda viu, eu leria de novo", "Biblioteca da meia noite"),
+(89686,"Já li",844, "2024-08-10","Foi o meu primeiro livro, o final poderia ter sido um pouquinho melhor, q bosta", "A Seleção"),
 (64536,"Lendo",844, "2024-11-24","Comprei esse livro aqui no acervo clbooks, amei demais, só comprem!!!!!!!!", "Os 7 maridos de Evelyn Hugo");
 
 insert into comentario (texto, data_comentario, fk_usuario_cod, fk_postagem_cod) values
@@ -53,3 +53,8 @@ insert into vendas (valor, fk_usuarioVend_cod,fk_usuarioComp_cod,fk_livros_cod,q
 (65.90,858,431, 5489,1),
 (42.00,556,741,4896,1),
 (65.90,431,556,7856,1);
+
+insert into FormasDePagamento (cod, nome_pag) values
+(145632,"cartão débito"),
+(987565,"cartão crédito"),
+("12563","pix");

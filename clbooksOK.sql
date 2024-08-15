@@ -75,13 +75,21 @@ CREATE TABLE comentario (
         REFERENCES postagem (cod),
         primary key(fk_usuario_cod,fk_postagem_cod)
 );
+CREATE TABLE FormasDePagamento(
+	cod INT,
+    nome_pag VARCHAR(50),
+    primary key (cod)
+);
 
 CREATE TABLE vendas (
     valor INT,
     quantidade INT,
+    fk_FormasDePagamento_cod INT,
     fk_usuarioVend_cod INT,
     fk_usuarioComp_cod INT,
     fk_livros_cod INT,
+       FOREIGN KEY (fk_FormasDePagamento_cod)
+        REFERENCES FormasDePagamento (cod),
     FOREIGN KEY (fk_usuarioVend_cod)
         REFERENCES usuario (cod),
     FOREIGN KEY (fk_usuarioComp_cod)
@@ -90,3 +98,5 @@ CREATE TABLE vendas (
         REFERENCES livros (cod),
         primary key (fk_usuarioVend_cod, fk_usuarioComp_cod, fk_livros_cod)
 );
+
+
