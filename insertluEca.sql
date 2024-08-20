@@ -45,16 +45,18 @@ insert into comentario (texto, data_comentario, fk_usuario_cod, fk_postagem_cod)
 insert into usuariopostagem (fk_usuario_cod, fk_postagem_cod) values
  (431,75896);
 
-insert into vendas (valor, fk_usuarioVend_cod,fk_usuarioComp_cod,fk_livros_cod,quantidade) values
-(52.55, 112,844,0123,1),
-(40.90, 112,844,4896,1),
-(70.50, 112,844,2253,1),
-(50.50, 112,844,6985,1),
-(65.90,858,431, 5489,1),
-(42.00,556,741,4896,1),
-(65.90,431,556,7856,1);
+insert into FormasDePagamento (cod,nome_pag) values
+(1456,"cartão débito"),
+(9875,"cartão crédito"),
+(1256,"pix"),
+(4562,"boleto");
 
-insert into FormasDePagamento (cod, nome_pag) values
-(145632,"cartão débito"),
-(987565,"cartão crédito"),
-("12563","pix");
+
+insert into vendas (valor,fk_FormasDePagamento_cod, fk_usuarioVend_cod,fk_usuarioComp_cod,fk_livros_cod,quantidade) values
+(52.55,1456, 112,844,0123,1),
+(40.90,9875, 112,844,4896,1),
+(70.50,1256,112,844,2253,1),
+(50.50,1256, 112,844,6985,1),
+(65.90,1256,858,431, 5489,1),
+(42.00,4562,556,741,4896,1),
+(65.90,4562,431,556,7856,1);
