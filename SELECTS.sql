@@ -16,15 +16,13 @@ SELECT * FROM postagem where data_postagem like "%-08-%";
 # Mostre somente as opiniões incluídas nas postagens do usuário com código 431
 SELECT opiniao FROM postagem where fk_usuario_cod = 431;
 
-# Qual a média do valor das vendas feitas no aplicativo?
-SELECT avg (valor) from vendas; 
+# Qual o livro mais vendido do aplicativo?
+SELECT  fk_livros_cod, COUNT(quantidade)AS quantidade FROM vendas GROUP BY fk_livros_cod ORDER by quantidade desc limit 1;
 
 # Selecione os livros que começem com a letra "a"
 SELECT * FROM livros where nome like "A%";
 
-# Quantos usuários estão cadastrados no aplicativo? 
-SELECT COUNT(cod) FROM usuario;
+# Top 3 livros mais vendidos do aplicativo
+SELECT  fk_livros_cod, COUNT(quantidade)AS quantidade FROM vendas GROUP BY fk_livros_cod ORDER by quantidade desc limit 3;
 
-# Quantos livros possuem no aplicativo?
-SELECT COUNT(cod) FROM livros;
 
