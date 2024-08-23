@@ -22,7 +22,7 @@ insert into usuario (cod, nome, email, data_nasc, escritor) values
 (362, "Elijameron lourenço", "elibolamen@gmail.com", "2007-11-02", FALSE),
 (244, "Gabriel Felipe", "gabrielfelipen@gmail.com", "2007-10-11", FALSE),
 (984, "Lucas Gabriel", "rafinhagab@gmail.com", "2008-12-11", FALSE),
-(845, "Maria Alicia", "malicia12@gmail.com", "2006-10-05", TRUE),
+(845, "Maria Alicia", "malicia12@gmail.com", "2006-10-05", FALSE),
 (189, "Matheus Luna", "matheusluna@gmail.com", "2008-01-24", TRUE),
 (774, "Miguel Andrade", "miguelandradeofc@gmail.com", "2008-10-04", FALSE);
 
@@ -41,7 +41,7 @@ insert into usuariopostagem (fk_usuario_cod, fk_postagem_cod) values
 (431,12563);
 
 insert into comentario (texto, data_comentario, fk_usuario_cod, fk_postagem_cod) values
- ("nossa, sim!!!! tive a mesma opinião","2024-08-02",741,54876),
+("nossa, sim!!!! tive a mesma opinião","2024-08-02",741,54876),
 ("um dos melhores que eu li tb","2027-05-01",556,45628),
 ("kkkkkkkkkk gast dinheiro atoa com esse ai","2023-04-04",431,75896);
 

@@ -4,8 +4,8 @@ select * from livros where genero="romance";
 # Selecionem o valor do livro mais caro e o mais barato
 SELECT MAX(valor)AS maior, min(valor)AS menor FROM livros;
 
-# Quais são os livros autorais da escritora Elena Maria ? //arrumar
-SELECT livrosAut FROM escritor where nome="Elena Maria";
+# Mostre a quantidade de escritores do aplicativo
+SELECT count(*)escritor FROM usuario WHERE escritor = true;
 
 # Quantos livros o usuario com código 845 comprou?
 SELECT sum(quantidade) AS quantidade FROM usuarioVendas WHERE FK_usuarioComp_cod = 845;
@@ -14,7 +14,7 @@ SELECT sum(quantidade) AS quantidade FROM usuarioVendas WHERE FK_usuarioComp_cod
 SELECT * FROM postagem where data_postagem like "%-08-%";
 
 # Quantas postagens o usuário com código 431 fez?
-SELECT fk_usuario_cod as usuario, count(fk_postagem_cod) from usuariopostagem group by usuario;
+SELECT fk_usuario_cod as usuario, count(fk_postagem_cod) AS postagem from usuariopostagem group by usuario;
 
 # Qual o livro mais vendido do aplicativo por usuarios?
 SELECT  fk_livros_cod, nome,SUM(quantidade)AS quantidade FROM UsuarioVendas GROUP BY fk_livros_cod ORDER by quantidade desc limit 1;
