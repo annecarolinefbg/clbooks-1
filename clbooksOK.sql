@@ -3,6 +3,7 @@ use clbooks;
 
 CREATE TABLE livros (
     cod INT,
+    valor INT,
     isbn VARCHAR(100) UNIQUE NOT NULL,
     genero VARCHAR(50),
     nome VARCHAR(50),
@@ -14,16 +15,7 @@ CREATE TABLE usuario (
     nome VARCHAR(50),
     email VARCHAR(50) UNIQUE NOT NULL,
     data_nasc DATE,
-    PRIMARY KEY (cod)
-);
-
-CREATE TABLE escritor (
-    cod INT,
-    nome VARCHAR(50),
-    email VARCHAR(50) UNIQUE NOT NULL,
-    data_nasc DATE,
-    bioPes VARCHAR(1000),
-    livrosAut VARCHAR(100),
+    escritor BOOL DEFAULT FALSE,  
     PRIMARY KEY (cod)
 );
 
@@ -81,7 +73,7 @@ CREATE TABLE FormasDePagamento (
     PRIMARY KEY (cod)
 );
 
-CREATE TABLE vendas (
+CREATE TABLE usuarioVendas(
     valor INT,
     quantidade INT,
     fk_FormasDePagamento_cod INT,
@@ -96,5 +88,8 @@ CREATE TABLE vendas (
         REFERENCES usuario (cod),
     FOREIGN KEY (fk_livros_cod)
         REFERENCES livros (cod),
-    PRIMARY KEY (fk_FormasDePagamento_cod , fk_usuarioVend_cod , fk_usuarioComp_cod , fk_livros_cod)
+    PRIMARY KEY (fk_FormasDePagamento_cod,fk_usuarioVend_cod,fk_usuarioComp_cod,fk_livros_cod)
 );
+
+
+
