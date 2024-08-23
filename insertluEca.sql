@@ -12,13 +12,19 @@ insert into livros (cod, valor,isbn, genero, nome) values
 (4756,135.35,"654546132134","ação", "Jogos Vorazes"),
 (8596,78.75,"145632895579", "fantasia","Harry Potter");
 
-insert into usuario (cod, nome, email, data_nasc) values
-(741, "Ana Luiza", "lluzi@gmail.com", "1999-08-02"),
-(556, "Anne Caroline", "cacazih@gmail.com", "2007-03-24"),
-(431, "David Lima", "davidzinho@gmail.com", "1984-07-18"),
-(858, "Maria Clarisse", "clahzinha@gmail.com", "1999-05-15"),
-(811, "Laura Gabrielly", "laurinha@gmail.com", "2004-06-14"),
-(112, "Alexander Fernandes", "ahleleklek@gmail.com", "1985-12-11");
+insert into usuario (cod, nome, email, data_nasc, escritor) values
+(741, "Ana Luiza", "lluzi@gmail.com", "1999-08-02", TRUE),
+(556, "Anne Caroline", "cacazih@gmail.com", "2007-03-24", FALSE),
+(431, "David Lima", "davidzinho@gmail.com", "1984-07-18", TRUE),
+(858, "Maria Clarisse", "clahzinha@gmail.com", "1999-05-15", TRUE),
+(811, "Laura Gabrielly", "laurinha@gmail.com", "2004-06-14", FALSE),
+(112, "Alexander Fernandes", "ahleleklek@gmail.com", "1985-12-11", TRUE),
+(362, "Elijameron lourenço", "elibolamen@gmail.com", "2007-11-02", FALSE),
+(244, "Gabriel Felipe", "gabrielfelipen@gmail.com", "2007-10-11", FALSE),
+(984, "Lucas Gabriel", "rafinhagab@gmail.com", "2008-12-11", FALSE),
+(845, "Maria Alicia", "malicia12@gmail.com", "2006-10-05", TRUE),
+(189, "Matheus Luna", "matheusluna@gmail.com", "2008-01-24", TRUE),
+(774, "Miguel Andrade", "miguelandradeofc@gmail.com", "2008-10-04", FALSE);
 
 insert INTO postagem (cod, status_leitura,data_postagem, opiniao, titulos) values
 (54876,"Abandonei","2024-08-02", "achei pessimo", "Quem é você Alaska"),
@@ -35,24 +41,24 @@ insert into usuariopostagem (fk_usuario_cod, fk_postagem_cod) values
 (431,12563);
 
 insert into comentario (texto, data_comentario, fk_usuario_cod, fk_postagem_cod) values
- ("que livro ruim","2024-08-02",741,54876),
-("esse aplicativo é muito bom! escontrei todos os livros que eu queria","2027-05-01",556,45628),
-("esse app é bom, mas não gostei do livro que eu li :(","2023-04-04",431,75896);
-a
+ ("nossa, sim!!!! tive a mesma opinião","2024-08-02",741,54876),
+("um dos melhores que eu li tb","2027-05-01",556,45628),
+("kkkkkkkkkk gast dinheiro atoa com esse ai","2023-04-04",431,75896);
+
 insert into FormasDePagamento (cod,nome_pag) values
 (1456,"cartão débito"),
 (9875,"cartão crédito"),
 (1256,"pix"),
 (4562,"boleto");
 
-insert into vendas (valor,fk_FormasDePagamento_cod,fk_usuarioVend_cod,fk_escritorComp_cod,fk_livros_cod,quantidade) values
-(60.00,4562,112,642,8596,1),
-(50.00,1456,431,642,2253,1),
-(40.50,4562,811,844,2253,1),
-(60.00,4562,112,142,8596,1),
-(630.00,1256,741,845,8596,8),
-(125.00,1256,741,845,6985,2),
-(60.00,4562,112,845,0123,1),
-(55.00,1456,556,844,2253,1);
+insert into usuarioVendas (valor,nome,fk_FormasDePagamento_cod,fk_usuarioVend_cod,fk_usuarioComp_cod,fk_livros_cod,quantidade) values
+(80.00,"Harry Potter",4562,984,556,8596,1),
+(50.00,"A Seleção",1456,431,556,2253,1),
+(40.50,"A Seleção",4562,811,774,2253,1),
+(60.00, "Textos Crueis Demais Para Serem Lidos Rapidamente",4562,112,362,7856,1),
+(630.00,"Harry Potter",1256,741,845,8596,8),
+(125.00,"Os 7 maridos de Evelyn Hugo",1256,741,845,6985,2),
+(60.00,"Orgulho E Preconceito",4562,189,845,0123,1),
+(43.50,"Primeiro Eu Tive Que Morrer",1456,556,774,4856,1);
 
 
