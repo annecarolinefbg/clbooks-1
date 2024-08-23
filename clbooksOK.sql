@@ -53,7 +53,7 @@ CREATE TABLE usuarioLivros (
         REFERENCES usuario (cod),
     FOREIGN KEY (fk_livros_cod)
         REFERENCES livros (cod),
-    PRIMARY KEY (fk_usuario_cod , fk_livros_cod)
+    PRIMARY KEY (fk_usuario_cod,fk_livros_cod)
 );
 
 CREATE TABLE comentario (
@@ -65,7 +65,7 @@ CREATE TABLE comentario (
         REFERENCES usuario (cod),
     FOREIGN KEY (fk_postagem_cod)
         REFERENCES postagem (cod),
-    PRIMARY KEY (fk_usuario_cod , fk_postagem_cod)
+    PRIMARY KEY (fk_usuario_cod,fk_postagem_cod)
 );
 CREATE TABLE FormasDePagamento (
     cod INT,
@@ -75,6 +75,7 @@ CREATE TABLE FormasDePagamento (
 
 CREATE TABLE usuarioVendas(
     valor INT,
+    nome VARCHAR (100),
     quantidade INT,
     fk_FormasDePagamento_cod INT,
     fk_usuarioVend_cod INT,
