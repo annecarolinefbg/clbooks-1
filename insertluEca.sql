@@ -12,19 +12,23 @@ insert into livros (cod, valor,isbn, genero, nome) values
 (4756,135.35,"654546132134","ação", "Jogos Vorazes"),
 (8596,78.75,"145632895579", "fantasia","Harry Potter");
 
-insert into usuario (cod, nome, email, data_nasc, escritor) values
-(741, "Ana Luiza", "lluzi@gmail.com", "1999-08-02", TRUE),
-(556, "Anne Caroline", "cacazih@gmail.com", "2007-03-24", FALSE),
-(431, "David Lima", "davidzinho@gmail.com", "1984-07-18", TRUE),
-(858, "Maria Clarisse", "clahzinha@gmail.com", "1999-05-15", TRUE),
-(811, "Laura Gabrielly", "laurinha@gmail.com", "2004-06-14", FALSE),
-(112, "Alexander Fernandes", "ahleleklek@gmail.com", "1985-12-11", TRUE),
-(362, "Elijameron lourenço", "elibolamen@gmail.com", "2007-11-02", FALSE),
-(244, "Gabriel Felipe", "gabrielfelipen@gmail.com", "2007-10-11", FALSE),
-(984, "Lucas Gabriel", "rafinhagab@gmail.com", "2008-12-11", FALSE),
-(845, "Maria Alicia", "malicia12@gmail.com", "2006-10-05", FALSE),
-(189, "Matheus Luna", "matheusluna@gmail.com", "2008-01-24", TRUE),
-(774, "Miguel Andrade", "miguelandradeofc@gmail.com", "2008-10-04", FALSE);
+insert into usuario (cod, nome, email, data_nasc, escritor, endereco, senha) values
+(741, "Ana Luiza", "lluzi@gmail.com", "1999-08-02",TRUE, "Rua da penha - Rio Largo", "senha1"),
+(556, "Anne Caroline", "cacazih@gmail.com", "2007-03-24", FALSE, "Rua do amor - Maceió", "senha2"),
+(431, "David Lima", "davidzinho@gmail.com", "1984-07-18", TRUE, "Rua do caroço - Messias", "senha3"),
+(858, "Maria Clarisse", "clahzinha@gmail.com", "1999-05-15", TRUE, "Rua de Deus - Rio Largo","senha4"),
+(811, "Laura Gabrielly", "laurinha@gmail.com", "2004-06-14", FALSE,"Rua da Duda - Rio Largo","senha5"),
+(112, "Alexander Fernandes", "ahleleklek@gmail.com", "1985-12-11", TRUE, "Rua do Limoeiro - Maceió","senha6"),
+(362, "Elijameron lourenço", "elibolamen@gmail.com", "2007-11-02", FALSE,"Rua 2007 - Messias","senha7"),
+(244, "Gabriel Felipe", "gabrielfelipen@gmail.com", "2007-10-11", FALSE, "Rua do Curralinho - Messias","senha8"),
+(984, "Lucas Gabriel", "rafinhagab@gmail.com", "2008-12-11", FALSE, "Rua de Deus - Rio Largo","senha9"),
+(845, "Maria Alicia", "malicia12@gmail.com", "2006-10-05", FALSE, "Rua da Wal - Maceió","senha10"),
+(189, "Matheus Luna", "matheusluna@gmail.com", "2008-01-24", TRUE,"Avenida José - Maceió","senha11"),
+(774, "Miguel Andrade", "miguelandradeofc@gmail.com", "2008-10-04", FALSE,"Rua de Deus - Rio Largo","senha12");
+
+insert into telefoneusuario (telefone, fk_usuario_cod) values
+("+55 (82) 99755-4512", 741),
+("+55 (82) 99255-0012", 811);
 
 insert INTO postagem (cod, status_leitura,data_postagem, opiniao, titulos) values
 (54876,"Abandonei","2024-08-02", "achei pessimo", "Quem é você Alaska"),

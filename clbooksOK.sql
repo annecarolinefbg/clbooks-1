@@ -15,8 +15,19 @@ CREATE TABLE usuario (
     nome VARCHAR(50),
     email VARCHAR(50) UNIQUE NOT NULL,
     data_nasc DATE,
+    senha varchar(50) NOT NULL,
+    usuario varchar(50),
+    endereco varchar(70),
     escritor BOOL DEFAULT FALSE,  
     PRIMARY KEY (cod)
+);
+
+CREATE TABLE telefoneusuario (
+    telefone VARCHAR(20),
+    fk_usuario_cod INT,
+    PRIMARY KEY (cod),
+    FOREIGN KEY (fk_usuario_cod)
+        REFERENCES usuario (cod)
 );
 
 CREATE TABLE postagem (
