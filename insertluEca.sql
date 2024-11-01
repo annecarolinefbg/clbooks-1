@@ -16,7 +16,7 @@ insert into usuario (cod, nome, email, data_nasc, escritor, endereco, senha) val
 (741, "Ana Luiza", "lluzi@gmail.com", "1999-08-02",TRUE, "Rua da penha - Rio Largo", "senha1"),
 (556, "Anne Caroline", "cacazih@gmail.com", "2007-03-24", FALSE, "Rua do amor - Maceió", "senha2"),
 (431, "David Lima", "davidzinho@gmail.com", "1984-07-18", TRUE, "Rua do caroço - Messias", "senha3"),
-(858, "Maria Clarisse", "clahzinha@gmail.com", "1999-05-15", TRUE, "Rua de Deus - Rio Largo","senha4"),
+(858, "Maria Clarisse", "clahzinh a@gmail.com", "1999-05-15", TRUE, "Rua de Deus - Rio Largo","senha4"),
 (811, "Laura Gabrielly", "laurinha@gmail.com", "2004-06-14", FALSE,"Rua da Duda - Rio Largo","senha5"),
 (112, "Alexander Fernandes", "ahleleklek@gmail.com", "1985-12-11", TRUE, "Rua do Limoeiro - Maceió","senha6"),
 (362, "Elijameron lourenço", "elibolamen@gmail.com", "2007-11-02", FALSE,"Rua 2007 - Messias","senha7"),
@@ -54,6 +54,16 @@ insert into FormasDePagamento (cod,nome_pag) values
 (9875,"cartão crédito"),
 (1256,"pix"),
 (4562,"boleto");
+
+insert into plano (valor, tipoAssinatura, cod) values
+(15, "Mensal", "Men1"),
+(180, "Anual","An2");
+
+insert into assinatura (fk_usuario_cod,fk_plano_cod) values
+(741,"An2"),
+(984,"Men1"),
+(556, "Men1"),
+(431,"An2");
 
 insert into usuarioVendas (valor,nome,fk_FormasDePagamento_cod,fk_usuarioVend_cod,fk_usuarioComp_cod,fk_livros_cod,quantidade) values
 (80.00,"Harry Potter",4562,984,556,8596,1),
