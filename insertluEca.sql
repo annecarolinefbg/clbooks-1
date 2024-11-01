@@ -39,7 +39,7 @@ insert INTO postagem (cod, status_leitura,data_postagem, opiniao, titulos) value
 (12563,"Já li","2024-08-10","Foi o meu primeiro livro, o final poderia ter sido um pouquinho melhor, q bosta", "A Seleção"),
 (64536,"Lendo","2024-11-24","Comprei esse livro aqui no acervo clbooks, amei demais, só comprem!!!!!!!!", "Os 7 maridos de Evelyn Hugo");
 
-insert into usuariopostagem (fk_usuario_cod, fk_postagem_cod) values
+insert into usuarioPostagem (fk_usuario_cod, fk_postagem_cod) values
 (431,75896),
 (431,54876),
 (431,12563);
