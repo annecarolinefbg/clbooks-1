@@ -24,8 +24,7 @@ CREATE TABLE usuario (
 
 CREATE TABLE telefoneusuario (
     telefone VARCHAR(20),
-    fk_usuario_cod INT,
-    PRIMARY KEY (cod),
+    fk_usuario_cod INT PRIMARY KEY,
     FOREIGN KEY (fk_usuario_cod)
         REFERENCES usuario (cod)
 );
@@ -45,12 +44,13 @@ CREATE TABLE postagem (
 
 CREATE TABLE usuarioPostagem (
     fk_usuario_cod INT,
-    fk_postagem_cod INT,
+    fk_postagem_cod INT, 
     FOREIGN KEY (fk_usuario_cod)
         REFERENCES usuario (cod),
     FOREIGN KEY (fk_postagem_cod)
         REFERENCES postagem (cod),
-    PRIMARY KEY (fk_usuario_cod , fk_postagem_cod)
+    PRIMARY KEY (fk_usuario_cod , fk_postagem_cod), 
+    foto varchar(50)
 );
 
 CREATE TABLE usuarioLivros (
@@ -102,6 +102,24 @@ CREATE TABLE usuarioVendas(
         REFERENCES livros (cod),
     PRIMARY KEY (fk_FormasDePagamento_cod,fk_usuarioVend_cod,fk_usuarioComp_cod,fk_livros_cod)
 );
+
+CREATE TABLE plano (
+valor INT,
+tipoAssinatura varchar(20), 
+cod int PRIMARY KEY
+  
+);
+
+CREATE TABLE assinaturas(
+  fk_usuario_cod INT PRIMARY KEY,
+  fk_plano_cod INT PRIMARY KEY,
+  FOREIGN KEY (fk_plano_cod)
+  REFERENCES plano (cod),
+    FOREIGN KEY (fk_usuario_cod)
+        REFERENCES usuario (cod)
+
+);
+
 
 
 
