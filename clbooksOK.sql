@@ -31,9 +31,11 @@ CREATE TABLE telefoneusuario (
 
 CREATE TABLE postagem (
     cod INT,
+    foto VARCHAR(50),
+    data DATE,
     status_leitura VARCHAR(50),
     fk_usuario_cod INT,
-    data_postagem DATE,
+    data_postagem DATE,      
     opiniao VARCHAR(100),
     titulos VARCHAR(100),
     PRIMARY KEY (cod),
@@ -69,6 +71,9 @@ CREATE TABLE usuarioLivros (
 
 CREATE TABLE comentario (
     texto VARCHAR(500),
+    foto VARCHAR(50),
+    localizacao VARCHAR(70),           
+    gif VARCHAR(70),
     data_comentario DATE,
     fk_usuario_cod INT,
     fk_postagem_cod INT,
