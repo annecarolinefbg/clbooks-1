@@ -83,6 +83,14 @@ CREATE TABLE comentario (
         REFERENCES postagem (cod),
     PRIMARY KEY (fk_usuario_cod,fk_postagem_cod)
 );
+
+CREATE TABLE notificacao (
+    fk_usuario_cod INT,
+    FOREIGN KEY (fk_usuario_cod)
+        REFERENCES usuario (cod),
+    PRIMARY KEY (cod_notificacao)
+);
+
 CREATE TABLE FormasDePagamento (
     cod INT,
     nome_pag VARCHAR(50),
