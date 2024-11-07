@@ -85,9 +85,10 @@ CREATE TABLE comentario (
 );
 
 CREATE TABLE notificacao (
-    fk_usuario_cod INT,
-    FOREIGN KEY (fk_usuario_cod)
-        REFERENCES usuario (cod),
+    fk_usuarioPostagem_cod INT,
+    FOREIGN KEY (fk_usuarioPostagem_cod)
+        REFERENCES usuarioPostagem (cod),
+	interacao VARCHAR(50),
     PRIMARY KEY (cod_notificacao)
 );
 
