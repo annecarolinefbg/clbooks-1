@@ -30,20 +30,20 @@ insert into telefoneusuario (telefone, fk_usuario_cod) values
 ("+55 (82) 99755-4512", 741),
 ("+55 (82) 99255-0012", 811);
 
-insert into comentario(texto,foto,localizacao,foto,gif, data_comentario) values
-( "achei pessimo", "", ""),
-(),
-(),
-();
+insert into comentario(texto,localizacao,foto_comentario,gif, data_comentario) values
+("achei pessimo", "", "","","2024-09-20"),
+("é Foda viu, eu leria de novo","","","","2024-06-15"),
+("não tive vontade de continuar a leitura", "", "", "", 2024-09-04),
+("Comecei agora e já me emocionei demais!", "", "", "", "2024-10-10");
 
-insert INTO postagem (cod, status_leitura,data_postagem, opiniao, titulos, foto, data) values
-(54876,"Abandonei","2024-08-02", "achei pessimo", "Quem é você Alaska","Usu1","2024-09-20"),
-(45628,"Lendo","2024-07-19", "Comecei agora e já me emocionei demais!", "A culpa é das estrelas","Usu2","2024-07-22"),
-(75896,"Abandonei", "2024-06-25", "não tive vontade de continuar a leitura", "Barretos","Usu3","2024-06-15"),
-(12596,"Já li","2024-08-30", "Me prendeu do começo ao fim, mas são muitos livros e ainda não terminei a saga inteira.", "Harry Potter","Usu4","2024-09-04"),
-(89666,"Quero ler","2024-08-05", "é Foda viu, eu leria de novo", "Biblioteca da meia noite","Usu5","2024-06-15"),
-(12563,"Já li","2024-08-10","Foi o meu primeiro livro, o final poderia ter sido um pouquinho melhor, q bosta", "A Seleção","Usu6","2024-10-10"),
-(64536,"Lendo","2024-11-24","Comprei esse livro aqui no acervo clbooks, amei demais, só comprem!!!!!!!!", "Os 7 maridos de Evelyn Hugo","Usu7","2024-09-02");
+insert INTO postagem (cod, status_leitura,data_postagem, opiniao, titulos, foto_usuario, data) values
+(54876,"Abandonei","2024-09-20", "achei pessimo", "Quem é você Alaska","Usu1"),
+(45628,"Lendo","2024-10-10", "Comecei agora e já me emocionei demais!", "A culpa é das estrelas","Usu2"),
+(75896,"Abandonei", "2024-09-04", "não tive vontade de continuar a leitura", "Barretos","Usu3"),
+(12596,"Já li","2024-08-30", "Me prendeu do começo ao fim, mas são muitos livros e ainda não terminei a saga inteira.", "Harry Potter","Usu4"),
+(89666,"Quero ler","2024-06-15", "é Foda viu, eu leria de novo", "Biblioteca da meia noite","Usu5"),
+(12563,"Já li","2024-08-10","Foi o meu primeiro livro, o final poderia ter sido um pouquinho melhor, q bosta", "A Seleção","Usu6"),
+(64536,"Lendo","2024-11-24","Comprei esse livro aqui no acervo clbooks, amei demais, só comprem!!!!!!!!", "Os 7 maridos de Evelyn Hugo","Usu7");
 
 insert into usuarioPostagem (fk_usuario_cod, fk_postagem_cod) values
 (431,75896),
