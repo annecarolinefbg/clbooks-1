@@ -31,7 +31,7 @@ CREATE TABLE telefoneusuario (
 
 CREATE TABLE postagem (
     cod INT,
-    foto VARCHAR(50),
+    foto_usuario VARCHAR(50),
     data DATE,
     status_leitura VARCHAR(50),
     fk_usuario_cod INT,
@@ -71,7 +71,7 @@ CREATE TABLE usuarioLivros (
 
 CREATE TABLE comentario (
     texto VARCHAR(500),
-    foto VARCHAR(50),
+    foto_comentario VARCHAR(50),
     localizacao VARCHAR(70),           
     gif VARCHAR(70),
     data_comentario DATE,
@@ -79,7 +79,7 @@ CREATE TABLE comentario (
     fk_postagem_cod INT,
     FOREIGN KEY (fk_usuario_cod)
         REFERENCES usuario (cod),
-    FOREIGN KEY (fk_postagem_cod)
+    FOREIGN KEY (fk_postagem_cod) 
         REFERENCES postagem (cod),
     PRIMARY KEY (fk_usuario_cod,fk_postagem_cod)
 );
