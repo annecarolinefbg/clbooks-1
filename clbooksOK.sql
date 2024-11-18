@@ -86,6 +86,7 @@ CREATE TABLE comentario (
 
 CREATE TABLE notificacao (
     fk_usuario_cod INT,
+    fk_postagem_cod INT,
     cod_notificacao VARCHAR(100),
     FOREIGN KEY (fk_usuario_cod)
         REFERENCES usuario (cod),
@@ -121,7 +122,7 @@ CREATE TABLE usuarioVendas (
 CREATE TABLE plano (
     valor INT,
     tipoAssinatura VARCHAR(20),
-    cod INT PRIMARY KEY
+    cod VARCHAR(100) PRIMARY KEY
 );
 
 CREATE TABLE assinaturas (
