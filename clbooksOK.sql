@@ -15,10 +15,10 @@ CREATE TABLE usuario (
     nome VARCHAR(50),
     email VARCHAR(50) UNIQUE NOT NULL,
     data_nasc DATE,
-    senha varchar(50) NOT NULL,
-    usuario varchar(50),
-    endereco varchar(70),
-    escritor BOOL DEFAULT FALSE,  
+    senha VARCHAR(50) NOT NULL,
+    usuario VARCHAR(50),
+    endereco VARCHAR(70),
+    escritor BOOL DEFAULT FALSE,
     PRIMARY KEY (cod)
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE postagem (
     data DATE,
     status_leitura VARCHAR(50),
     fk_usuario_cod INT,
-    data_postagem DATE,      
+    data_postagem DATE,
     opiniao VARCHAR(100),
     titulos VARCHAR(100),
     PRIMARY KEY (cod),
@@ -46,13 +46,13 @@ CREATE TABLE postagem (
 
 CREATE TABLE usuarioPostagem (
     fk_usuario_cod INT,
-    fk_postagem_cod INT, 
+    fk_postagem_cod INT,
     FOREIGN KEY (fk_usuario_cod)
         REFERENCES usuario (cod),
     FOREIGN KEY (fk_postagem_cod)
         REFERENCES postagem (cod),
-    PRIMARY KEY (fk_usuario_cod , fk_postagem_cod), 
-    foto varchar(50)
+    PRIMARY KEY (fk_usuario_cod , fk_postagem_cod),
+    foto VARCHAR(50)
 );
 
 CREATE TABLE usuarioLivros (
@@ -66,29 +66,30 @@ CREATE TABLE usuarioLivros (
         REFERENCES usuario (cod),
     FOREIGN KEY (fk_livros_cod)
         REFERENCES livros (cod),
-    PRIMARY KEY (fk_usuario_cod,fk_livros_cod)
+    PRIMARY KEY (fk_usuario_cod , fk_livros_cod)
 );
 
 CREATE TABLE comentario (
     texto VARCHAR(500),
     foto_comentario VARCHAR(50),
-    localizacao VARCHAR(70),           
+    localizacao VARCHAR(70),
     gif VARCHAR(70),
     data_comentario DATE,
     fk_usuario_cod INT,
     fk_postagem_cod INT,
     FOREIGN KEY (fk_usuario_cod)
         REFERENCES usuario (cod),
-    FOREIGN KEY (fk_postagem_cod) 
+    FOREIGN KEY (fk_postagem_cod)
         REFERENCES postagem (cod),
-    PRIMARY KEY (fk_usuario_cod,fk_postagem_cod)
+    PRIMARY KEY (fk_usuario_cod , fk_postagem_cod)
 );
 
 CREATE TABLE notificacao (
-    fk_usuarioPostagem_cod INT,
-    FOREIGN KEY (fk_usuarioPostagem_cod)
-        REFERENCES usuarioPostagem (cod),
-	interacao VARCHAR(50),
+    fk_usuario_cod INT,
+    cod_notificacao VARCHAR(100),
+    FOREIGN KEY (fk_usuario_cod)
+        REFERENCES usuario (cod),
+    interacao VARCHAR(50),
     PRIMARY KEY (cod_notificacao)
 );
 
@@ -98,9 +99,9 @@ CREATE TABLE FormasDePagamento (
     PRIMARY KEY (cod)
 );
 
-CREATE TABLE usuarioVendas(
+CREATE TABLE usuarioVendas (
     valor INT,
-    nome VARCHAR (100),
+    nome VARCHAR(100),
     quantidade INT,
     fk_FormasDePagamento_cod INT,
     fk_usuarioVend_cod INT,
@@ -114,24 +115,23 @@ CREATE TABLE usuarioVendas(
         REFERENCES usuario (cod),
     FOREIGN KEY (fk_livros_cod)
         REFERENCES livros (cod),
-    PRIMARY KEY (fk_FormasDePagamento_cod,fk_usuarioVend_cod,fk_usuarioComp_cod,fk_livros_cod)
+    PRIMARY KEY (fk_FormasDePagamento_cod , fk_usuarioVend_cod , fk_usuarioComp_cod , fk_livros_cod)
 );
 
 CREATE TABLE plano (
-valor INT,
-tipoAssinatura varchar(20), 
-cod int PRIMARY KEY
-  
+    valor INT,
+    tipoAssinatura VARCHAR(20),
+    cod INT PRIMARY KEY
 );
 
-CREATE TABLE assinaturas(
-  fk_usuario_cod INT PRIMARY KEY,
-  fk_plano_cod INT PRIMARY KEY,
-  FOREIGN KEY (fk_plano_cod)
-  REFERENCES plano (cod),
+CREATE TABLE assinaturas (
+    fk_usuario_cod INT,
+    fk_plano_cod INT,
+    FOREIGN KEY (fk_plano_cod)
+        REFERENCES plano (cod),
     FOREIGN KEY (fk_usuario_cod)
-        REFERENCES usuario (cod)
-
+        REFERENCES usuario (cod),
+    PRIMARY KEY (fk_usuario_cod , fk_plano_cod)
 );
 
 
