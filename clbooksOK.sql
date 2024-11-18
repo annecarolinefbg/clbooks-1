@@ -127,7 +127,7 @@ CREATE TABLE plano (
 
 CREATE TABLE assinaturas (
     fk_usuario_cod INT,
-    fk_plano_cod INT,
+    fk_plano_cod VARCHAR(1),
     FOREIGN KEY (fk_plano_cod)
         REFERENCES plano (cod),
     FOREIGN KEY (fk_usuario_cod)
