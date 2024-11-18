@@ -24,45 +24,43 @@ insert into usuario (cod, nome, email, data_nasc, escritor, endereco, senha) val
 (984, "Lucas Gabriel", "rafinhagab@gmail.com", "2008-12-11", FALSE, "Rua de Deus - Rio Largo","senha9"),
 (845, "Maria Alicia", "malicia12@gmail.com", "2006-10-05", FALSE, "Rua da Wal - Maceió","senha10"),
 (189, "Matheus Luna", "matheusluna@gmail.com", "2008-01-24", TRUE,"Avenida José - Maceió","senha11"),
-(774, "Miguel Andrade", "miguelandradeofc@gmail.com", "2008-10-04", FALSE,"Rua de Deus - Rio Largo","senha12");
+(774, "Waldylene Gomes", "walggz@gmail.com", "2008-10-04", FALSE,"Rua de Deus - Rio Largo","senha12");
 
 insert into telefoneusuario (telefone, fk_usuario_cod) values
 ("+55 (82) 99755-4512", 741),
 ("+55 (82) 99255-0012", 811);
 
 insert INTO postagem (cod, status_leitura,data_postagem, opiniao, titulos, foto_usuario, fk_usuario_cod) values
-(54876,"Abandonei","2024-09-20", "achei pessimo!!!!!!!!!! ;(", "Quem é você Alaska","Usu1",),
-(45628,"Lendo","2024-10-10", "Comecei agora e já me emocionei demais!", "A culpa é das estrelas","Usu2",),
-(75896,"Abandonei", "2024-09-04", "não tive vontade de continuar a leitura", "Barretos","Usu3",),
-(12596,"Já li","2024-08-30", "Me prendeu do começo ao fim, mas são muitos livros e ainda não terminei a saga inteira.", "Harry Potter","Usu4",),
-(89666,"Quero ler","2024-06-15", "é Foda viu, eu leria de novo", "Biblioteca da meia noite","Usu5",),
-(12563,"Já li","2024-08-10","Foi o meu primeiro livro, o final poderia ter sido um pouquinho melhor, q bosta", "A Seleção","Usu6",),
-(64536,"Lendo","2024-11-24","Comprei esse livro aqui no acervo clbooks, amei demais, só comprem!!!!!!!!", "Os 7 maridos de Evelyn Hugo","Usu7",);
+(54876,"Abandonei","2024-09-20", "achei pessimo!!!!!!!!!! ;(", "Quem é você Alaska","Usu1",112),
+(45628,"Lendo","2024-10-10", "Comecei agora e já me emocionei demais!", "A culpa é das estrelas","Usu2",858),
+(75896,"Abandonei", "2024-09-04", "não tive vontade de continuar a leitura", "Barretos","Usu3",556),
+(12596,"Já li","2024-08-30", "Me prendeu do começo ao fim, mas são muitos livros e ainda não terminei a saga inteira.", "Harry Potter","Usu4",774),
+(89666,"Quero ler","2024-06-15", "é Foda viu, eu leria de novo", "Biblioteca da meia noite","Usu5",431),
+(12563,"Já li","2024-08-10","Foi o meu primeiro livro, o final poderia ter sido um pouquinho melhor, q bosta", "A Seleção","Usu6",741),
+(64536,"Lendo","2024-11-24","Comprei esse livro aqui no acervo clbooks, amei demais, só comprem!!!!!!!!", "Os 7 maridos de Evelyn Hugo","Usu7",811);
 
 insert into usuarioPostagem (fk_usuario_cod, fk_postagem_cod) values
-(556,75896),
 (112,54876),
+(858,45628),
+(556,75896),
+(774,12596),
 (431,89666),
-(858,45628);
+(741,12563),
+(811,64536);
 
 insert into comentario(texto,localizacao,foto_comentario,gif, data_comentario,  fk_usuario_cod, fk_postagem_cod) values
-("não tive vontade de continuar  a leitura", "", "", "", 2024-09-04,556,75896),
 ("achei pessimo", "", "","","2024-09-20",112,54876),
-("é Foda viu, eu leria de novo","","","","2024-06-15",431,89666),
-("Comecei agora e já me emocionei demais!", "", "", "", "2024-10-10",858,45628);
+("Comecei agora e já me emocionei demais!", "", "", "", "2024-10-10",858,45628),
+("não tive vontade de continuar  a leitura", "", "", "", 2024-09-04,556,75896),
+("é Foda viu, eu leria de novo","","","","2024-06-15",431,89666);
+
 
 
 insert into notificacao(fk_usuarioPostagem_cod, cod_notificacao, interacao) values
 (75896, "Notificacao1", "1 like"),
 (75896, "Notificacao2", "1 like"),
-(75896, "Notificacao3", "1 like"); 
-
-insert into FormasDePagamento (cod,nome_pag) values
-(1456,"cartão débito"),
-(9875,"cartão crédito"),
-(1256,"pix"),
-(4562,"boleto");
-
+(45628, "Notificacao3", "Adicionado aos favoritos "); 
+  
 insert into plano (valor, tipoAssinatura, cod) values
 (15, "Mensal", "Men1"),
 (180, "Anual","An2");
