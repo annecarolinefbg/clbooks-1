@@ -2,7 +2,7 @@ create database clbooks;
 use clbooks;
 
 CREATE TABLE livros (
-    cod INT,
+    cod INT AUTO_INCREMENT,
     valor INT,
     isbn VARCHAR(100) UNIQUE NOT NULL,
     genero VARCHAR(50),
@@ -45,20 +45,30 @@ CREATE TABLE postagem (
 
 
 CREATE TABLE usuarioPostagem (
+    cod INT AUTO_INCREMENT,
     fk_usuario_cod INT,
     fk_postagem_cod INT,
+    foto VARCHAR(50),
     FOREIGN KEY (fk_usuario_cod)
         REFERENCES usuario (cod),
     FOREIGN KEY (fk_postagem_cod)
         REFERENCES postagem (cod),
-    PRIMARY KEY (fk_usuario_cod , fk_postagem_cod),
-    foto VARCHAR(50)
+    PRIMARY KEY (cod , fk_usuario_cod , fk_postagem_cod)
+);
+
+CREATE TABLE notificacao (
+    cod INT AUTO_INCREMENT,
+    fk_usuarioPostagem_cod INT,
+    interacao VARCHAR(50),
+    FOREIGN KEY (fk_usuarioPostagem_cod)
+        REFERENCES usuarioPostagem (cod),
+    PRIMARY KEY (cod)
 );
 
 CREATE TABLE usuarioLivros (
     valor VARCHAR(500),
-    favoritos VARCHAR(100),
     desejados VARCHAR(100),
+    abandonados VARCHAR(100),
     atual VARCHAR(100),
     fk_usuario_cod INT,
     fk_livros_cod INT,
@@ -76,27 +86,28 @@ CREATE TABLE comentario (
     gif VARCHAR(70),
     data_comentario DATE,
     fk_usuario_cod INT,
-    fk_postagem_cod INT,
     FOREIGN KEY (fk_usuario_cod)
         REFERENCES usuario (cod),
-    FOREIGN KEY (fk_postagem_cod)
-        REFERENCES postagem (cod),
-    PRIMARY KEY (fk_usuario_cod , fk_postagem_cod)
+    PRIMARY KEY (fk_usuario_cod)
 );
 
-CREATE TABLE notificacao (
-    fk_usuario_cod INT,
-    fk_postagem_cod INT,
-    cod_notificacao VARCHAR(100),
-    FOREIGN KEY (fk_usuario_cod)
-        REFERENCES usuario (cod),
-    interacao VARCHAR(50),
-    PRIMARY KEY (cod_notificacao)
-);
 
 CREATE TABLE FormasDePagamento (
     cod INT,
     nome_pag VARCHAR(50),
+    PRIMARY KEY (cod)
+);
+
+CREATE TABLE PagamentoCartao (
+    cod INT AUTO_INCREMENT,
+    fk_FormasDePagamento_cod INT,
+    nome VARCHAR(100),
+    numeroCartao INT UNIQUE NOT NULL,
+    data DATE,
+    cvv INT,
+    cpf INT UNIQUE NOT NULL,
+    FOREIGN KEY (fk_FormasDePagamento_cod)
+        REFERENCES FormasDePagamento (cod),
     PRIMARY KEY (cod)
 );
 
@@ -105,29 +116,39 @@ CREATE TABLE usuarioVendas (
     nome VARCHAR(100),
     quantidade INT,
     fk_FormasDePagamento_cod INT,
-    fk_usuarioVend_cod INT,
-    fk_usuarioComp_cod INT,
     fk_livros_cod INT,
+    fk_usuario_cod INT,
     FOREIGN KEY (fk_FormasDePagamento_cod)
         REFERENCES FormasDePagamento (cod),
-    FOREIGN KEY (fk_usuarioVend_cod)
-        REFERENCES usuario (cod),
-    FOREIGN KEY (fk_usuarioComp_cod)
-        REFERENCES usuario (cod),
     FOREIGN KEY (fk_livros_cod)
         REFERENCES livros (cod),
-    PRIMARY KEY (fk_FormasDePagamento_cod , fk_usuarioVend_cod , fk_usuarioComp_cod , fk_livros_cod)
+        FOREIGN KEY(fk_usuario_cod)
+        REFERENCES usuario (cod),
+    PRIMARY KEY (fk_FormasDePagamento_cod , fk_livros_cod,fk_usuario_cod)
+);
+
+CREATE TABLE entrega (
+	cod INT auto_increment, 
+    estado VARCHAR(100),
+    cidade VARCHAR(100),
+    rua VARCHAR(100),
+    complemento VARCHAR(150),
+    referencia VARCHAR(100),
+    fk_usuario_cod INT,
+    FOREIGN KEY (fk_usuario_cod)
+        REFERENCES usuario (cod),
+    PRIMARY KEY(cod)
 );
 
 CREATE TABLE plano (
     valor INT,
     tipoAssinatura VARCHAR(20),
-    cod VARCHAR(100) PRIMARY KEY
+    cod INT PRIMARY KEY
 );
 
 CREATE TABLE assinaturas (
     fk_usuario_cod INT,
-    fk_plano_cod VARCHAR(1),
+    fk_plano_cod INT,
     FOREIGN KEY (fk_plano_cod)
         REFERENCES plano (cod),
     FOREIGN KEY (fk_usuario_cod)
