@@ -79,15 +79,15 @@ ORDER BY num_postagens DESC;
 #Select para listar os livros e o preço que um usuario especifico comprou  
 SELECT l.nome AS livro, uv.valor, uv.quantidade
 FROM usuarioVendas uv
-JOIN livros l ON uv.fk_livros_cod = l.cod
-JOIN usuario u ON uv.fk_usuario_cod = u.cod
+INNER JOIN livros l ON uv.fk_livros_cod = l.cod
+INNER JOIN usuario u ON uv.fk_usuario_cod = u.cod
 WHERE u.nome = 'Ana Luiza' 
 ORDER BY uv.valor DESC;
 
 #Select para ver os gastos de cada usuario dentro do aplicativo
 SELECT u.nome AS usuario, SUM(uv.valor * uv.quantidade) AS total_gasto
 FROM usuarioVendas uv
-JOIN usuario u ON uv.fk_usuario_cod = u.cod
+INNER JOIN usuario u ON uv.fk_usuario_cod = u.cod
 GROUP BY u.nome
 HAVING total_gasto > 0;
 
