@@ -1,11 +1,12 @@
-
-#Select para mostrar as postagens mais curtidas ERRADO
-SELECT p.cod AS postagem_cod, p.titulos AS postagem_titulo, COUNT(n.cod_notificacao) AS curtidas
+#Select para mostrar as postagens mais curtidas
+SELECT p.cod AS postagem_cod, p.titulos AS postagem_titulo, COUNT(n.cod) AS curtidas
 FROM postagem p
-INNER JOIN notificacao n ON p.cod = n.fk_postagem_cod
+INNER JOIN usuarioPostagem up ON p.cod = up.fk_postagem_cod
+INNER JOIN notificacao n ON up.cod = n.fk_usuarioPostagem_cod
 WHERE n.interacao 
 GROUP BY p.cod
 ORDER BY curtidas DESC;
+
 
 #Select para mostrar os livros de romance com valor mais alto que 50 reais -> tela de acervo
 SELECT * FROM livros 
