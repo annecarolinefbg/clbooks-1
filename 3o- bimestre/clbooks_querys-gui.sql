@@ -133,6 +133,14 @@ INNER JOIN FormasDePagamento fp ON uv.fk_FormasDePagamento_cod = fp.cod
 WHERE uv.fk_usuario_cod = 741
 ORDER BY uv.valor DESC; 
 
+#Select para ver pagamentos feitos no cartão de crédito
+SELECT u.nome AS Usuario, uv.valor, fp.nome_pag AS FormaDePagamento, pc.nome AS TitularCartao, pc.numeroCartao, pc.data AS DataValidade
+FROM usuarioVendas uv
+JOIN usuario u ON uv.fk_usuario_cod = u.cod
+JOIN FormasDePagamento fp ON uv.fk_FormasDePagamento_cod = fp.cod
+LEFT JOIN PagamentoCartao pc ON uv.fk_FormasDePagamento_cod = pc.fk_FormasDePagamento_cod
+WHERE fp.nome_pag = 'cartão crédito';
+
 
 
 #Tela carrinho de compra
