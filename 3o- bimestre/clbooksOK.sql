@@ -156,6 +156,13 @@ CREATE TABLE assinaturas (
     PRIMARY KEY (fk_usuario_cod , fk_plano_cod)
 );
 
+CREATE TABLE escritorLivros (
+    fk_usuario_cod INT,
+    fk_livros_cod INT,
+    PRIMARY KEY (fk_usuario_cod, fk_livros_cod),
+    FOREIGN KEY (fk_usuario_cod) REFERENCES usuario(cod),
+    FOREIGN KEY (fk_livros_cod) REFERENCES livros(cod)
+);
 
 
 
