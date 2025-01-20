@@ -57,12 +57,13 @@ insert into comentario(texto,localizacao,foto_comentario,gif, data_comentario, f
 insert into notificacao(fk_usuarioPostagem_cod,interacao) values
 (1, "1 like"),
 (6,"1 like"),
-(3,"Adicionado aos favoritos "); 
+(3,"Adicionado aos favoritos "),
+(3,"1 like"); 
 
 insert into entrega(fk_usuario_cod,estado,cidade,rua,complemento,referencia) values
 (741,"Alagoas", "Rio Largo", "Vila Rica", "Casa", ""),
 (556,"Alagoas", "Maceió", "Ponta Verde", "Apartamento", "Ao lado do Palato"),
-(845,"São Paulo", "São Paulo","Moranguinho","Casa", ""),
+(845,"São Paulo", "São Paulo","Moranguinho","Casa ao lado do cemitério", ""),
 (774,"Alagoas", "Messias", "Curralinho", "Casa", "Em frente ao complexo"),
 (362,"Alagoas", "Flexeiras", "PingPong", "Casa","");
   
@@ -105,5 +106,9 @@ insert into usuarioVendas (valor,nome,fk_FormasDePagamento_cod,fk_livros_cod,qua
 (125.00,"Os 7 maridos de Evelyn Hugo",16,6985,2,774),
 (60.00,"Orgulho E Preconceito",17,0123,1,112),
 (43.50,"Primeiro Eu Tive Que Morrer",18,4856,1,112);
+
+INSERT INTO escritorLivros (fk_usuario_cod, fk_livros_cod) VALUES
+(741, 123), # Ana Luiza publicou "Orgulho e Preconceito"
+(431, 5489); #David Lima publicou "A Culpa é das Estrelas"
 
 
