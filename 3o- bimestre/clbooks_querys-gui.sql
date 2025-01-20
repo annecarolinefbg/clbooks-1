@@ -1,12 +1,3 @@
-#Select para mostrar as postagens mais curtidas - TALVEZ TIRAR
-SELECT p.cod AS postagem_cod, p.titulos AS postagem_titulo, COUNT(n.cod) AS curtidas
-FROM postagem p
-INNER JOIN usuarioPostagem up ON p.cod = up.fk_postagem_cod
-INNER JOIN notificacao n ON up.cod = n.fk_usuarioPostagem_cod
-WHERE n.interacao
-GROUP BY p.cod
-ORDER BY curtidas DESC;
-
 #Select para mostrar os livros de romance com valor mais alto que 50 reais -> tela de acervo
 SELECT * FROM livros
 WHERE genero = 'romance' AND valor > 50;
@@ -20,6 +11,7 @@ WHERE livros.genero = "fantasia";
 SELECT postagem.fk_usuario_cod AS usuario, MAX(postagem.data_postagem) AS data_postagem
 FROM postagem
 GROUP BY postagem.fk_usuario_cod;
+
 
 #Select para mostrar o status de leitura dos usuários com os livros-> status de leitura
 SELECT fk_usuario_cod AS usuario, status_leitura, titulos, data_postagem
@@ -93,16 +85,26 @@ WHERE uv.fk_usuario_cod = 741
 ORDER BY uv.valor DESC; 
 
 
-#Select para ver os livros com mais postagens -> tela forum ERRADO
-SELECT p.titulos AS livro, COUNT(p.cod) AS num_postagens
-FROM postagem p
-GROUP BY p.titulos
-ORDER BY num_postagens DESC;
-
-#Select para listar os livros e o preço que um usuario especifico comprou  
+#Select para listar os livros e o preço que um usuario especifico comprou -> Tela carrinho de compra
 SELECT l.nome AS livro, uv.valor, uv.quantidade
 FROM usuarioVendas uv
 INNER JOIN livros l ON uv.fk_livros_cod = l.cod
 INNER JOIN usuario u ON uv.fk_usuario_cod = u.cod
 WHERE u.nome = 'Ana Luiza'
 ORDER BY uv.valor DESC;
+
+#Select para que o usuário veja quantos livros os ele publicou -> Tela perfil geral
+SELECT u.nome AS Escritor, l.nome AS NomeLivro, l.genero AS Genero
+FROM escritorLivros el
+INNER JOIN usuario u ON el.fk_usuario_cod = u.cod
+INNER JOIN livros l ON el.fk_livros_cod = l.cod
+WHERE u.cod = 741;
+
+#Select para que o usuário consiga ver seus comentários feitos -> Tela perfil geral
+SELECT c.texto AS Comentario, c.data_comentario AS Data, c.localizacao AS Localizacao, c.foto_comentario AS Foto, c.gif AS Gif
+FROM comentario c
+INNER JOIN usuario u ON c.fk_usuario_cod = u.cod
+WHERE u.cod = 431; 
+
+
+
