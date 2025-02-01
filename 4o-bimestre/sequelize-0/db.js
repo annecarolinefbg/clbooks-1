@@ -1,6 +1,6 @@
 const {Sequelize} = require('sequelize');
 const sequelize = new Sequelize(
-    'wmtunes', 
+    'clbooks', 
     'aluno.ifal', // nome de usuario  
     'aluno.ifal', // senha de acesso
     {
