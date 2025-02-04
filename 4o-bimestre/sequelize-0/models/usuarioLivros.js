@@ -1,12 +1,12 @@
 const { DataTypes } = require('sequelize');
+const Usuarios = require('./usuarios');
+const Livros = require('./livros');
 const sequelize = require('../db');
 
 const UsuarioLivros = sequelize.define('UsuarioLivros', {
   valor: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false,
-    autoIncrement: true,
-    primaryKey: true
   },
   
   desejados: {
@@ -22,7 +22,7 @@ const UsuarioLivros = sequelize.define('UsuarioLivros', {
   atual: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
+  }
 });
 
 module.exports = UsuarioLivros;
